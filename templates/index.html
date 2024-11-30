@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { max-width: 500px; margin: auto; padding: 20px; background-color: #f7f7f7; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        label { display: block; margin: 10px 0 5px; font-weight: bold; }
+        input, select, button { width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .radio-group { margin-bottom: 50px; }
+        .radio-group label { margin-right: 20px; font-weight: normal; }
+        .radio-group input[type="radio"] { vertical-align: middle; margin-right: 5px; }
+        .result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Loan Approval Prediction</h1>
+    <form method="POST">
+       
+        <label for="no_of_dependents">Number of Dependents:</label>
+        <input type="number" id="no_of_dependents" name="no_of_dependents" min="0" max="5" required>
+
+        <label for="education">Education Level:</label>
+        <div class="radio-group">
+            <label><input type="radio" id="education" name="education" value="0" required> Not Graduate</label>
+            <label><input type="radio" id="education" name="education" value="1" required> Graduate</label>
+        </div>
+
+        <label for="self_employed">Employment Status:</label>
+        <div class="radio-group">
+            <label><input type="radio" id="self_employed" name="self_employed" value="0" required> Not Self-Employed</label>
+            <label><input type="radio" id="self_employed" name="self_employed" value="1" required> Self-Employed</label>
+        </div>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="18" required>
+
+        <label for="income_annum">Annual Income (Rs):</label>
+        <input type="number" id="income_annum" name="income_annum" min="0" required>
+
+        <label for="loan_amount">Loan Amount (Rs):</label>
+        <input type="number" id="loan_amount" name="loan_amount" min="0" required>
+
+        <label for="loan_term">Loan Term (Months):</label>
+        <input type="number" id="loan_term" name="loan_term" min="1" required>
+
+        <label for="cibil_score">CIBIL Score:</label>
+        <input type="number" id="cibil_score" name="cibil_score" min="300" max="900" required>
+
+        <label for="total_assets">Total Assets (Rs):</label>
+        <input type="number" id="total_assets" name="total_assets" min="0" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

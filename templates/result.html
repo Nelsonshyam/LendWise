@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .result { max-width: 500px; margin: auto; }
+        h2 { margin-bottom: 10px; }
+        p { margin: 5px 0; }
+        .approved { color: green; }
+        .rejected { color: red; }
+    </style>
+</head>
+<body>
+    <div class="result">
+        <h1>Loan Approval Result</h1>
+        <p><strong>Prediction:</strong> <span class="{{ 'approved' if result['prediction'] == 'Approved' else 'rejected' }}">{{ result['prediction'] }}</span></p>
+        <p><strong>Probability of Approval:</strong> {{ result['prob_approved'] | round(2) }}</p>
+        <p><strong>Probability of Rejection:</strong> {{ result['prob_rejected'] | round(2) }}</p>
+
+        {% if result['prediction'] == 'Rejected' %}
+        <h2>Reasons for Rejection:</h2>
+        <ul>
+            {% for reason in result['reasons'] %}
+            <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h2>Reasons for Approval:</h2>
+        <ul>
+            {% for reason in result['reasons'] %}
+            <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
